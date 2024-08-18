@@ -1,0 +1,5545 @@
+{
+  "name": "ali",
+  "word": "_normal_identifier",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "namespace_declaration"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "using_directive"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "object_definition"
+        }
+      ]
+    },
+    "namespace_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "namespace"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^;]*;"
+        }
+      ]
+    },
+    "using_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^;]*;"
+        }
+      ]
+    },
+    "object_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "codeunit"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "enum"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "enumextension"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "page"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "pageextension"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "permissionset"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "permissionsetextension"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "profile"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "query"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "report"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "reportextension"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "table"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "tableextension"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "xmlport"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "number_literal"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "pagecustomization"
+                },
+                {
+                  "type": "STRING",
+                  "value": "dotnet"
+                },
+                {
+                  "type": "STRING",
+                  "value": "controladdin"
+                },
+                {
+                  "type": "STRING",
+                  "value": "interface"
+                },
+                {
+                  "type": "STRING",
+                  "value": "entitlement"
+                },
+                {
+                  "type": "STRING",
+                  "value": "assembly"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "extends"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "metadata_block"
+        }
+      ]
+    },
+    "_var_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "assignable_var_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "non_assignable_var_type"
+        }
+      ]
+    },
+    "assignable_var_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_type_with_length"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        }
+      ]
+    },
+    "non_assignable_var_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_object_with_name_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type_with_properties"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_array_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_option_type"
+        }
+      ]
+    },
+    "_type_with_length": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\[\\d+(,\\s*\\d+)?\\]"
+        }
+      ]
+    },
+    "_object_with_name_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "_type_with_properties": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "string_literal"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "STRING",
+                "value": "="
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_array_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\[\\d+(,\\s*\\d+)?\\]"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "of"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "assignable_var_type"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_option_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Action"
+            },
+            {
+              "type": "STRING",
+              "value": "Array"
+            },
+            {
+              "type": "STRING",
+              "value": "Automation"
+            },
+            {
+              "type": "STRING",
+              "value": "BigInteger"
+            },
+            {
+              "type": "STRING",
+              "value": "BigText"
+            },
+            {
+              "type": "STRING",
+              "value": "Blob"
+            },
+            {
+              "type": "STRING",
+              "value": "Boolean"
+            },
+            {
+              "type": "STRING",
+              "value": "Byte"
+            },
+            {
+              "type": "STRING",
+              "value": "Char"
+            },
+            {
+              "type": "STRING",
+              "value": "ClientType"
+            },
+            {
+              "type": "STRING",
+              "value": "Code"
+            },
+            {
+              "type": "STRING",
+              "value": "Codeunit"
+            },
+            {
+              "type": "STRING",
+              "value": "ConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Database"
+            },
+            {
+              "type": "STRING",
+              "value": "Dataclassification"
+            },
+            {
+              "type": "STRING",
+              "value": "DataScope"
+            },
+            {
+              "type": "STRING",
+              "value": "Date"
+            },
+            {
+              "type": "STRING",
+              "value": "DateFormula"
+            },
+            {
+              "type": "STRING",
+              "value": "DateTime"
+            },
+            {
+              "type": "STRING",
+              "value": "Decimal"
+            },
+            {
+              "type": "STRING",
+              "value": "DefaultLayout"
+            },
+            {
+              "type": "STRING",
+              "value": "Dialog"
+            },
+            {
+              "type": "STRING",
+              "value": "Dictionary"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNet"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetAssembly"
+            },
+            {
+              "type": "STRING",
+              "value": "DotNetTypeDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "Duration"
+            },
+            {
+              "type": "STRING",
+              "value": "Enum"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ErrorType"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "ExecutionMode"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldClass"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldRef"
+            },
+            {
+              "type": "STRING",
+              "value": "FieldType"
+            },
+            {
+              "type": "STRING",
+              "value": "File"
+            },
+            {
+              "type": "STRING",
+              "value": "FilterPageBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "Guid"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpClient"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpContent"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpHeaders"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpRequestMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "HttpResponseMessage"
+            },
+            {
+              "type": "STRING",
+              "value": "InStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Integer"
+            },
+            {
+              "type": "STRING",
+              "value": "Joker"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonArray"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonObject"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonToken"
+            },
+            {
+              "type": "STRING",
+              "value": "JsonValue"
+            },
+            {
+              "type": "STRING",
+              "value": "KeyRef"
+            },
+            {
+              "type": "STRING",
+              "value": "List"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleDependencyInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "ModuleInfo"
+            },
+            {
+              "type": "STRING",
+              "value": "None"
+            },
+            {
+              "type": "STRING",
+              "value": "Notification"
+            },
+            {
+              "type": "STRING",
+              "value": "NotificationScope"
+            },
+            {
+              "type": "STRING",
+              "value": "ObjectType"
+            },
+            {
+              "type": "STRING",
+              "value": "Option"
+            },
+            {
+              "type": "STRING",
+              "value": "OutStream"
+            },
+            {
+              "type": "STRING",
+              "value": "Page"
+            },
+            {
+              "type": "STRING",
+              "value": "PageResult"
+            },
+            {
+              "type": "STRING",
+              "value": "Query"
+            },
+            {
+              "type": "STRING",
+              "value": "Record"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordId"
+            },
+            {
+              "type": "STRING",
+              "value": "RecordRef"
+            },
+            {
+              "type": "STRING",
+              "value": "Report"
+            },
+            {
+              "type": "STRING",
+              "value": "ReportFormat"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "SecurityFiltering"
+            },
+            {
+              "type": "STRING",
+              "value": "SessionSettings"
+            },
+            {
+              "type": "STRING",
+              "value": "Table"
+            },
+            {
+              "type": "STRING",
+              "value": "TableConnectionType"
+            },
+            {
+              "type": "STRING",
+              "value": "TableFilter"
+            },
+            {
+              "type": "STRING",
+              "value": "TestAction"
+            },
+            {
+              "type": "STRING",
+              "value": "TestField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestFilterField"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "TestPermissions"
+            },
+            {
+              "type": "STRING",
+              "value": "TestRequestPage"
+            },
+            {
+              "type": "STRING",
+              "value": "Text"
+            },
+            {
+              "type": "STRING",
+              "value": "TextBuilder"
+            },
+            {
+              "type": "STRING",
+              "value": "TextConst"
+            },
+            {
+              "type": "STRING",
+              "value": "TextEncoding"
+            },
+            {
+              "type": "STRING",
+              "value": "Time"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionModel"
+            },
+            {
+              "type": "STRING",
+              "value": "TransactionType"
+            },
+            {
+              "type": "STRING",
+              "value": "Variant"
+            },
+            {
+              "type": "STRING",
+              "value": "Verbosity"
+            },
+            {
+              "type": "STRING",
+              "value": "Version"
+            },
+            {
+              "type": "STRING",
+              "value": "View"
+            },
+            {
+              "type": "STRING",
+              "value": "Views"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionContext"
+            },
+            {
+              "type": "STRING",
+              "value": "WebServiceActionResultCode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttribute"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlAttributeCollection"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlCData"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlComment"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDeclaration"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocument"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlDocumentType"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlElement"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNamespaceManager"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNameTable"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNode"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlNodeList"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlPort"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlProcessingInstruction"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlReadOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlText"
+            },
+            {
+              "type": "STRING",
+              "value": "XmlWriteOptions"
+            },
+            {
+              "type": "STRING",
+              "value": "Label"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "property_definition": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_value"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "statement_end"
+          }
+        ]
+      }
+    },
+    "property_value": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "decimal_places"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_value_list"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_property_value_recursive"
+          }
+        ]
+      }
+    },
+    "_property_value_recursive": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_property_value_recursive_inner"
+      },
+      "named": true,
+      "value": "property_value"
+    },
+    "_property_value_recursive_inner": {
+      "type": "PREC_RIGHT",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_fn_like_property_value"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_property_filtered_identifier"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "property_keyword"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_expression"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "STRING",
+                "value": "="
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "property_value_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_property_value_recursive"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "property_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tabledata"
+        }
+      ]
+    },
+    "_fn_like_property_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "average"
+        },
+        {
+          "type": "STRING",
+          "value": "const"
+        },
+        {
+          "type": "STRING",
+          "value": "count"
+        },
+        {
+          "type": "STRING",
+          "value": "exist"
+        },
+        {
+          "type": "STRING",
+          "value": "field"
+        },
+        {
+          "type": "STRING",
+          "value": "filter"
+        },
+        {
+          "type": "STRING",
+          "value": "lookup"
+        },
+        {
+          "type": "STRING",
+          "value": "max"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "STRING",
+          "value": "order"
+        },
+        {
+          "type": "STRING",
+          "value": "sorting"
+        },
+        {
+          "type": "STRING",
+          "value": "sum"
+        },
+        {
+          "type": "STRING",
+          "value": "upperlimit"
+        },
+        {
+          "type": "STRING",
+          "value": "where"
+        },
+        {
+          "type": "STRING",
+          "value": "ascending"
+        },
+        {
+          "type": "STRING",
+          "value": "descending"
+        }
+      ]
+    },
+    "_fn_like_property_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_fn_like_property_keyword"
+          },
+          "named": true,
+          "value": "property_keyword"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "property_value_list"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_property_filtered_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_fn_like_property_value"
+        }
+      ]
+    },
+    "decimal_places": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_decimal_places_integer"
+            },
+            {
+              "type": "STRING",
+              "value": ":"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_decimal_places_integer"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ":"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_decimal_places_integer"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_decimal_places_integer"
+            },
+            {
+              "type": "STRING",
+              "value": ":"
+            }
+          ]
+        }
+      ]
+    },
+    "_decimal_places_integer": {
+      "type": "ALIAS",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+"
+            }
+          }
+        }
+      },
+      "named": true,
+      "value": "integer_literal"
+    },
+    "property_expression": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "property_unary_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_binary_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_parenthesized_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "property_range_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "number_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "boolean_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "string_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "date_literal"
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "metadata_type"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "metadata_arguments"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "metadata_block"
+        }
+      ]
+    },
+    "metadata_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "action"
+        },
+        {
+          "type": "STRING",
+          "value": "actions"
+        },
+        {
+          "type": "STRING",
+          "value": "add"
+        },
+        {
+          "type": "STRING",
+          "value": "addafter"
+        },
+        {
+          "type": "STRING",
+          "value": "addbefore"
+        },
+        {
+          "type": "STRING",
+          "value": "addfirst"
+        },
+        {
+          "type": "STRING",
+          "value": "addlast"
+        },
+        {
+          "type": "STRING",
+          "value": "area"
+        },
+        {
+          "type": "STRING",
+          "value": "assembly"
+        },
+        {
+          "type": "STRING",
+          "value": "chartpart"
+        },
+        {
+          "type": "STRING",
+          "value": "column"
+        },
+        {
+          "type": "STRING",
+          "value": "cuegroup"
+        },
+        {
+          "type": "STRING",
+          "value": "customizes"
+        },
+        {
+          "type": "STRING",
+          "value": "dataitem"
+        },
+        {
+          "type": "STRING",
+          "value": "dataset"
+        },
+        {
+          "type": "STRING",
+          "value": "elements"
+        },
+        {
+          "type": "STRING",
+          "value": "extends"
+        },
+        {
+          "type": "STRING",
+          "value": "field"
+        },
+        {
+          "type": "STRING",
+          "value": "fieldattribute"
+        },
+        {
+          "type": "STRING",
+          "value": "fieldelement"
+        },
+        {
+          "type": "STRING",
+          "value": "fieldgroup"
+        },
+        {
+          "type": "STRING",
+          "value": "fieldgroups"
+        },
+        {
+          "type": "STRING",
+          "value": "fields"
+        },
+        {
+          "type": "STRING",
+          "value": "filter"
+        },
+        {
+          "type": "STRING",
+          "value": "fixed"
+        },
+        {
+          "type": "STRING",
+          "value": "grid"
+        },
+        {
+          "type": "STRING",
+          "value": "group"
+        },
+        {
+          "type": "STRING",
+          "value": "implements"
+        },
+        {
+          "type": "STRING",
+          "value": "key"
+        },
+        {
+          "type": "STRING",
+          "value": "keys"
+        },
+        {
+          "type": "STRING",
+          "value": "label"
+        },
+        {
+          "type": "STRING",
+          "value": "labels"
+        },
+        {
+          "type": "STRING",
+          "value": "layout"
+        },
+        {
+          "type": "STRING",
+          "value": "modify"
+        },
+        {
+          "type": "STRING",
+          "value": "moveafter"
+        },
+        {
+          "type": "STRING",
+          "value": "movebefore"
+        },
+        {
+          "type": "STRING",
+          "value": "movefirst"
+        },
+        {
+          "type": "STRING",
+          "value": "movelast"
+        },
+        {
+          "type": "STRING",
+          "value": "part"
+        },
+        {
+          "type": "STRING",
+          "value": "repeater"
+        },
+        {
+          "type": "STRING",
+          "value": "requestpage"
+        },
+        {
+          "type": "STRING",
+          "value": "schema"
+        },
+        {
+          "type": "STRING",
+          "value": "separator"
+        },
+        {
+          "type": "STRING",
+          "value": "systempart"
+        },
+        {
+          "type": "STRING",
+          "value": "tableelement"
+        },
+        {
+          "type": "STRING",
+          "value": "textattribute"
+        },
+        {
+          "type": "STRING",
+          "value": "textelement"
+        },
+        {
+          "type": "STRING",
+          "value": "type"
+        },
+        {
+          "type": "STRING",
+          "value": "value"
+        }
+      ]
+    },
+    "metadata_arguments": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "statement_end"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "metadata_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "metadata_begin"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "property_definition"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "metadata"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "global_var_definitions"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "method_definition"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "metadata_end"
+        }
+      ]
+    },
+    "metadata_begin": {
+      "type": "PATTERN",
+      "value": "\\{"
+    },
+    "metadata_end": {
+      "type": "PATTERN",
+      "value": "\\}"
+    },
+    "global_var_definitions": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "protected"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "declaration_keyword"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "var_type_declaration"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "statement_end"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "method_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "method_attributes"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "local"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "trigger"
+            },
+            {
+              "type": "STRING",
+              "value": "procedure"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parameters"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "return_var"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        }
+      ]
+    },
+    "method_attributes": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "("
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "expression"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ")"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
+    },
+    "_attribute_expression": {
+      "type": "SYMBOL",
+      "name": "expression"
+    },
+    "_attribute_identifier": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "parameters": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_var_definition"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "statement_end"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_var_definition"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "return_var": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^{]+"
+        }
+      ]
+    },
+    "_var_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_var_type"
+        }
+      ]
+    },
+    "code_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "code_begin"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_code_statement"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_end"
+        }
+      ]
+    },
+    "code_begin": {
+      "type": "PATTERN",
+      "value": "\\{"
+    },
+    "code_end": {
+      "type": "PATTERN",
+      "value": "\\}"
+    },
+    "_code_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_var_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_return_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "while_loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "repeat_until_loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "for_loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "foreach_loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_statement"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "method_call"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "statement_end"
+            }
+          ]
+        }
+      ]
+    },
+    "_var_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "var_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "var_declaration_with_assignment"
+            }
+          ]
+        }
+      ]
+    },
+    "var_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "declaration_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_type_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "var_declaration_with_assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "declaration_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "assignable_var_type_declaration"
+          },
+          "named": true,
+          "value": "var_type_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var_declaration_assignment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "declaration_keyword": {
+      "type": "STRING",
+      "value": "var"
+    },
+    "var_type_declaration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "non_assignable_var_type_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignable_var_type_declaration"
+        }
+      ]
+    },
+    "assignable_var_type_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignable_var_type"
+        }
+      ]
+    },
+    "non_assignable_var_type_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "non_assignable_var_type"
+        }
+      ]
+    },
+    "var_declaration_assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "assignment_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "["
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "expression"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "]"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "_return_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "return_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "return_statement_with_expression"
+        }
+      ]
+    },
+    "return_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "return_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "return_statement_with_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "return_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "return_keyword": {
+      "type": "STRING",
+      "value": "return"
+    },
+    "if_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "else"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "code_block"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "while_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        }
+      ]
+    },
+    "repeat_until_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "repeat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        },
+        {
+          "type": "STRING",
+          "value": "until"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "statement_end"
+        }
+      ]
+    },
+    "for_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "to"
+            },
+            {
+              "type": "STRING",
+              "value": "downto"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        }
+      ]
+    },
+    "foreach_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "foreach"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_block"
+        }
+      ]
+    },
+    "switch_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "switch_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_begin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_cases"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "switch_end"
+        }
+      ]
+    },
+    "switch_keyword": {
+      "type": "STRING",
+      "value": "switch"
+    },
+    "switch_cases": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "switch_case"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "switch_default"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "switch_begin": {
+      "type": "STRING",
+      "value": "{"
+    },
+    "switch_end": {
+      "type": "STRING",
+      "value": "}"
+    },
+    "switch_case": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "case_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "case_begin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "case_body"
+        }
+      ]
+    },
+    "case_keyword": {
+      "type": "STRING",
+      "value": "case"
+    },
+    "case_begin": {
+      "type": "STRING",
+      "value": ":"
+    },
+    "switch_default": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "case_default_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "case_default_begin"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "case_body"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "case_default_keyword": {
+      "type": "STRING",
+      "value": "default"
+    },
+    "case_default_begin": {
+      "type": "STRING",
+      "value": ":"
+    },
+    "case_body": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_code_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "multiple_statements"
+        }
+      ]
+    },
+    "multiple_statements": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_code_statement"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_code_statement"
+          }
+        }
+      ]
+    },
+    "assignment_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+="
+        },
+        {
+          "type": "STRING",
+          "value": "-="
+        },
+        {
+          "type": "STRING",
+          "value": "*="
+        },
+        {
+          "type": "STRING",
+          "value": "/="
+        },
+        {
+          "type": "STRING",
+          "value": "div="
+        },
+        {
+          "type": "STRING",
+          "value": "%="
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        }
+      ]
+    },
+    "expression": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "unary_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "binary_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "parenthesized_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "range_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "method_call"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "number_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "boolean_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "string_literal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "date_literal"
+          }
+        ]
+      }
+    },
+    "unary_expression": {
+      "type": "PREC",
+      "value": 6,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "+"
+              },
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "STRING",
+                "value": "not"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "binary_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "*"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "/"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "div"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "%"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "+"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "-"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 3,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "=="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "!="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ">"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ">="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "in"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "STRING",
+                "value": "and"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 1,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "or"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "^"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "property_unary_expression": {
+      "type": "PREC",
+      "value": 6,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "+"
+              },
+              {
+                "type": "STRING",
+                "value": "-"
+              },
+              {
+                "type": "STRING",
+                "value": "not"
+              },
+              {
+                "type": "STRING",
+                "value": "=="
+              },
+              {
+                "type": "STRING",
+                "value": "!="
+              },
+              {
+                "type": "STRING",
+                "value": "<"
+              },
+              {
+                "type": "STRING",
+                "value": "<="
+              },
+              {
+                "type": "STRING",
+                "value": ">"
+              },
+              {
+                "type": "STRING",
+                "value": ">="
+              },
+              {
+                "type": "STRING",
+                "value": "in"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_property_value_recursive"
+          }
+        ]
+      }
+    },
+    "property_binary_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 5,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "*"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "/"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "div"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "%"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "+"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "-"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 3,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "=="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "!="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "<="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ">"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ">="
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "in"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "STRING",
+                "value": "and"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 1,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "or"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "^"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_property_value_recursive"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "method_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument_list"
+        }
+      ]
+    },
+    "argument_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_normal_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier_in_quotes"
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "STRING",
+                "value": "."
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "STRING",
+                "value": "::"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "STRING",
+                "value": "["
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "STRING",
+                "value": "]"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "@"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_normal_identifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-zA-Z_]+[0-9_a-zA-Z]*"
+      }
+    },
+    "identifier_in_quotes": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\"((\"\")|([^\"]))*\""
+      }
+    },
+    "statement_end": {
+      "type": "STRING",
+      "value": ";"
+    },
+    "number_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+\\.\\d+"
+            }
+          },
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "\\d+"
+            }
+          }
+        ]
+      }
+    },
+    "integer_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "TOKEN",
+        "content": {
+          "type": "PATTERN",
+          "value": "\\d+"
+        }
+      }
+    },
+    "boolean_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "true"
+          },
+          {
+            "type": "STRING",
+            "value": "false"
+          }
+        ]
+      }
+    },
+    "date_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\d+(\\.\\d+)?(DT|D|T)"
+      }
+    },
+    "string_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "'(('')|([^']))*'"
+      }
+    },
+    "parenthesized_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "range_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "STRING",
+            "value": ".."
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "property_parenthesized_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_property_value_recursive"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "property_range_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_property_value_recursive"
+          },
+          {
+            "type": "STRING",
+            "value": ".."
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_property_value_recursive"
+          }
+        ]
+      }
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "//"
+              },
+              {
+                "type": "PATTERN",
+                "value": ".*"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "/*"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+              },
+              {
+                "type": "STRING",
+                "value": "/"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "preprocessor": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "#.*\\n"
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preprocessor"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

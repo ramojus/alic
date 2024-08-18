@@ -1,0 +1,18 @@
+==================
+Return statements
+==================
+
+procedure x(): Integer
+begin
+  return 1;
+end
+
+---
+
+(source_file
+  (function_definition
+    (identifier)
+    (parameter_list)
+    (primitive_type)
+    (block
+      (return_statement (number)))))

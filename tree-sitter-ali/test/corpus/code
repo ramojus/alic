@@ -1,0 +1,649 @@
+==================
+return statement
+==================
+
+page 50100 MyPage
+{
+    trigger HelloWorld()
+    {
+        return true;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (return_statement_with_expression
+            (return_keyword)
+            (expression
+              (identifier))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+declarations, assignments, complex expressions
+==================
+
+page 50100 MyPage
+{
+    trigger HelloWorld()
+    {
+        var a: Integer;
+        var a: Label 'with string';
+        var a: Record "With Name; ""quoted inside""" = 8;
+        var a: Array [10, 5] of Array[2] of Code[10];
+        a = true;
+        a += -20;
+        a div= -3 + 4 * -6;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (var_declaration
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (assignable_var_type_declaration
+                (assignable_var_type)))
+            (statement_end))
+          (var_declaration
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (non_assignable_var_type_declaration
+                (non_assignable_var_type
+                  (string_literal))))
+            (statement_end))
+          (var_declaration
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (non_assignable_var_type_declaration
+                (non_assignable_var_type
+                  (identifier
+                    (identifier_in_quotes))
+                  (expression
+                    (number_literal)))))
+            (statement_end))
+          (var_declaration
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (non_assignable_var_type_declaration
+                (non_assignable_var_type
+                  (assignable_var_type)
+                  (assignable_var_type))))
+            (statement_end))
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (identifier))
+            (statement_end))
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (unary_expression
+                (expression
+                  (number_literal))))
+            (statement_end))
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (binary_expression
+                (expression
+                  (unary_expression
+                    (expression
+                      (number_literal))))
+                (expression
+                  (binary_expression
+                    (expression
+                      (number_literal))
+                    (expression
+                      (unary_expression
+                        (expression
+                          (number_literal))))))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+if statements
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        if a == 5 {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (if_statement
+            (expression
+              (binary_expression
+                (expression
+                  (identifier))
+                (expression
+                  (number_literal))))
+            (code_block
+              (code_begin)
+              (return_statement_with_expression
+                (return_keyword)
+                (expression
+                  (identifier))
+                (statement_end))
+              (code_end))
+            (code_block
+              (code_begin)
+              (return_statement_with_expression
+                (return_keyword)
+                (expression
+                  (identifier))
+                (statement_end))
+              (code_end)))
+          (code_end)))
+      (metadata_end))))
+
+==================
+parameters
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld(VarA: Record Depot; VarB: Boolean; VarC: Option Some, None, All)
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters
+          (identifier)
+          (non_assignable_var_type
+            (identifier))
+          (statement_end)
+          (identifier)
+          (assignable_var_type)
+          (statement_end)
+          (identifier)
+          (non_assignable_var_type
+            (identifier)
+            (identifier)
+            (identifier)))
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+method calls
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        HelloWorld(a, "And here", "Check this out");
+        var a: Integer = GetA() + GetB();
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (method_call
+            (identifier)
+            (argument_list
+              (expression
+                (identifier))
+              (expression
+                (identifier
+                  (identifier_in_quotes)))
+              (expression
+                (identifier
+                  (identifier_in_quotes)))))
+          (statement_end)
+          (var_declaration_with_assignment
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (assignable_var_type))
+            (var_declaration_assignment
+              (assignment_operator)
+              (expression
+                (binary_expression
+                  (expression
+                    (method_call
+                      (identifier)
+                      (argument_list)))
+                  (expression
+                    (method_call
+                      (identifier)
+                      (argument_list))))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+method attributes
+==================
+
+codeunit 50100 MyCodeunit
+{
+    [TryMethod]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"My Codeunit ;; ]""", 'strange func '' ;[]', '', true, true)]
+    procedure HelloWorld()
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (method_attributes
+          (identifier)
+          (identifier)
+          (expression
+            (identifier
+              (identifier)
+              (identifier)))
+          (expression
+            (identifier
+              (identifier)
+              (identifier
+                (identifier_in_quotes))))
+          (expression
+            (string_literal))
+          (expression
+            (string_literal))
+          (expression
+            (identifier))
+          (expression
+            (identifier)))
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+local method
+==================
+
+codeunit 50100 MyCodeunit
+{
+    local procedure HelloWorld()
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+return variable
+==================
+
+codeunit 50100 MyCodeunit
+{
+    local procedure HelloWorld(): Type
+    {
+    }
+    local procedure HelloWorld() ReturnVarName: Type
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (return_var)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (method_definition
+        (identifier)
+        (parameters)
+        (return_var
+          (identifier))
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+loops
+==================
+
+codeunit 50100 MyCodeunit
+{
+    local procedure HelloWorld()
+    {
+        while a == 5 {
+            a += 1;
+        }
+
+        repeat {
+            Hello();
+        } until Bye();
+
+        for a = ";" to 5 * 2 - 1 {
+        }
+
+        foreach "Thing """ in Var {
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (while_loop
+            (expression
+              (binary_expression
+                (expression
+                  (identifier))
+                (expression
+                  (number_literal))))
+            (code_block
+              (code_begin)
+              (assignment
+                (identifier)
+                (assignment_operator)
+                (expression
+                  (number_literal))
+                (statement_end))
+              (code_end)))
+          (repeat_until_loop
+            (code_block
+              (code_begin)
+              (method_call
+                (identifier)
+                (argument_list))
+              (statement_end)
+              (code_end))
+            (expression
+              (method_call
+                (identifier)
+                (argument_list)))
+            (statement_end))
+          (for_loop
+            (identifier)
+            (assignment_operator)
+            (expression
+              (identifier
+                (identifier_in_quotes)))
+            (expression
+              (binary_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (number_literal))
+                    (expression
+                      (number_literal))))
+                (expression
+                  (number_literal))))
+            (code_block
+              (code_begin)
+              (code_end)))
+          (foreach_loop
+            (identifier
+              (identifier_in_quotes))
+            (identifier)
+            (code_block
+              (code_begin)
+              (code_end)))
+          (code_end)))
+      (metadata_end))))
+
+==================
+switch statement
+==================
+
+codeunit 50100 MyCodeunit
+{
+    local procedure HelloWorld()
+    {
+        switch a + 1 {
+        case 3 - 1:
+            a = 0;
+            a += 1;
+        case 0, 1:
+            a = 0;
+        case 0..a:
+            a = 0;
+        default:
+            a = 1;
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (switch_statement
+            (switch_keyword)
+            (expression
+              (binary_expression
+                (expression
+                  (identifier))
+                (expression
+                  (number_literal))))
+            (switch_begin)
+            (switch_cases
+              (switch_case
+                (case_keyword)
+                (expression
+                  (binary_expression
+                    (expression
+                      (number_literal))
+                    (expression
+                      (number_literal))))
+                (case_begin)
+                (case_body
+                  (multiple_statements
+                    (assignment
+                      (identifier)
+                      (assignment_operator)
+                      (expression
+                        (number_literal))
+                      (statement_end))
+                    (assignment
+                      (identifier)
+                      (assignment_operator)
+                      (expression
+                        (number_literal))
+                      (statement_end)))))
+              (switch_case
+                (case_keyword)
+                (expression
+                  (number_literal))
+                (expression
+                  (number_literal))
+                (case_begin)
+                (case_body
+                  (assignment
+                    (identifier)
+                    (assignment_operator)
+                    (expression
+                      (number_literal))
+                    (statement_end))))
+              (switch_case
+                (case_keyword)
+                (expression
+                  (range_expression
+                    (expression
+                      (number_literal))
+                    (expression
+                      (identifier))))
+                (case_begin)
+                (case_body
+                  (assignment
+                    (identifier)
+                    (assignment_operator)
+                    (expression
+                      (number_literal))
+                    (statement_end))))
+              (switch_default
+                (case_default_keyword)
+                (case_default_begin)
+                (case_body
+                  (assignment
+                    (identifier)
+                    (assignment_operator)
+                    (expression
+                      (number_literal))
+                    (statement_end)))))
+            (switch_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+indexed identifier
+==================
+
+codeunit 50100 MyCodeunit
+{
+    local procedure HelloWorld()
+    {
+        a[2] = b[2];
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier
+              (identifier)
+              (expression
+                (number_literal)))
+            (assignment_operator)
+            (expression
+              (identifier
+                (identifier)
+                (expression
+                  (number_literal))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+

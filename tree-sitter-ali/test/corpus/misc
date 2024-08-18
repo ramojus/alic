@@ -1,0 +1,91 @@
+==================
+namespaces
+==================
+
+namespace MyNamespace;
+using SomeOtherNamespace;
+
+page 50100 MyPage
+{
+}
+
+---
+
+(source_file
+  (namespace_declaration)
+  (using_directive)
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata_end))))
+
+==================
+nested namespace, muliple uses
+==================
+
+namespace MyNamespace.MyNestedNamespace;
+using SomeOtherNamespace;
+using YetAnotherNamespace.Nested;
+
+page 50100 MyPage
+{
+}
+
+---
+
+(source_file
+  (namespace_declaration)
+  (using_directive)
+  (using_directive)
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata_end))))
+
+==================
+comments
+==================
+// simple line comment, // did I trick you?
+page 50100 MyPage
+{/* jkljkl
+multiline comment here /*
+*/}
+
+---
+
+(source_file
+  (comment)
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (comment)
+      (metadata_end))))
+
+==================
+pragmas
+==================
+
+#pragma warning disable AS0082
+enum 257 "VAT Date #Type"
+{
+}
+#pragma warning restore
+
+---
+
+(source_file
+  (preprocessor)
+  (object_definition
+    (number_literal)
+    (identifier
+      (identifier_in_quotes))
+    (metadata_block
+      (metadata_begin)
+      (metadata_end)))
+  (preprocessor))

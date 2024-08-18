@@ -1,0 +1,631 @@
+==================
+empty object with ID
+==================
+
+codeunit 80142 TheName
+{
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata_end))))
+
+==================
+empty object without ID
+==================
+
+pagecustomization TheName
+{
+}
+
+---
+
+(source_file
+  (object_definition
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata_end))))
+
+==================
+object property values in list form
+==================
+
+codeunit 80142 thename
+{
+    Permissions =
+        tabledata Customer = RIMD,
+        tabledata "Payment Terms" = RMD,
+        tabledata Currency = RM,
+        tabledata "Sales Header" = RIM,
+        tabledata "Sales Line" = RIMD;
+
+    ApplicationArea = Basic, Suite;
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (property_definition
+        (identifier)
+        (property_value
+          (property_value_list
+            (property_value
+              (property_value
+                (property_keyword)
+                (identifier))
+              (property_value
+                (property_expression
+                  (identifier))))
+            (property_value
+              (property_value
+                (property_keyword)
+                (identifier
+                  (identifier_in_quotes)))
+              (property_value
+                (property_expression
+                  (identifier))))
+            (property_value
+              (property_value
+                (property_keyword)
+                (identifier))
+              (property_value
+                (property_expression
+                  (identifier))))
+            (property_value
+              (property_value
+                (property_keyword)
+                (identifier
+                  (identifier_in_quotes)))
+              (property_value
+                (property_expression
+                  (identifier))))
+            (property_value
+              (property_value
+                (property_keyword)
+                (identifier
+                  (identifier_in_quotes)))
+              (property_value
+                (property_expression
+                  (identifier))))))
+        (statement_end))
+      (property_definition
+        (identifier)
+        (property_value
+          (property_value_list
+            (property_value
+              (property_expression
+                (identifier)))
+            (property_value
+              (property_expression
+                (identifier)))))
+        (statement_end))
+      (metadata_end))))
+
+==================
+object with many children
+==================
+
+page 50100 MyPage
+{
+    PageType = Card;
+    layout
+    {
+        area(Content)
+        {
+            field(Name; Name)
+            {
+                ApplicationArea = All;
+            }
+            value(0; " ") { Caption = ' '; }
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (property_definition
+        (identifier)
+        (property_value
+          (property_value
+            (property_expression
+              (identifier))))
+        (statement_end))
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (metadata
+            (metadata_type)
+            (metadata_arguments
+              (expression
+                (identifier)))
+            (metadata_block
+              (metadata_begin)
+              (metadata
+                (metadata_type)
+                (metadata_arguments
+                  (expression
+                    (identifier))
+                  (statement_end)
+                  (expression
+                    (identifier)))
+                (metadata_block
+                  (metadata_begin)
+                  (property_definition
+                    (identifier)
+                    (property_value
+                      (property_value
+                        (property_expression
+                          (identifier))))
+                    (statement_end))
+                  (metadata_end)))
+              (metadata
+                (metadata_type)
+                (metadata_arguments
+                  (expression
+                    (number_literal))
+                  (statement_end)
+                  (expression
+                    (identifier
+                      (identifier_in_quotes))))
+                (metadata_block
+                  (metadata_begin)
+                  (property_definition
+                    (identifier)
+                    (property_value
+                      (property_value
+                        (property_expression
+                          (string_literal))))
+                    (statement_end))
+                  (metadata_end)))
+              (metadata_end)))
+          (metadata_end)))
+      (metadata_end))))
+
+==================
+object with children and trigger
+==================
+
+page 50100 MyPage
+{
+    layout
+    {
+        trigger HelloWorld()
+        {
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (method_definition
+            (identifier)
+            (parameters)
+            (code_block
+              (code_begin)
+              (code_end)))
+          (metadata_end)))
+      (metadata_end))))
+
+==================
+object with two methods
+==================
+
+page 50100 MyPage
+{
+    layout
+    {
+        trigger HelloWorld()
+        {
+        }
+        trigger HelloWorld2()
+        {
+        }
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (method_definition
+            (identifier)
+            (parameters)
+            (code_block
+              (code_begin)
+              (code_end)))
+          (method_definition
+            (identifier)
+            (parameters)
+            (code_block
+              (code_begin)
+              (code_end)))
+          (metadata_end)))
+      (metadata_end))))
+
+==================
+object extends
+==================
+
+pageextension 70074160 MS_CustomerListExt extends "Customer List"
+{
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (identifier
+      (identifier_in_quotes))
+    (metadata_block
+      (metadata_begin)
+      (metadata_end))))
+
+==================
+global vars
+==================
+
+page 50100 MyPage
+{
+    layout
+    {
+    }
+
+    var
+      a: Integer;
+      b: Label 'value';
+
+    procedure HelloWorld()
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (metadata_end)))
+      (global_var_definitions
+        (declaration_keyword)
+        (identifier)
+        (var_type_declaration
+          (assignable_var_type_declaration
+            (assignable_var_type)))
+        (statement_end)
+        (identifier)
+        (var_type_declaration
+          (non_assignable_var_type_declaration
+            (non_assignable_var_type
+              (string_literal))))
+        (statement_end))
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+protected var
+==================
+
+page 50100 MyPage
+{
+    layout
+    {
+    }
+
+    protected var
+      a: Integer;
+
+    procedure HelloWorld()
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (metadata_end)))
+      (global_var_definitions
+        (declaration_keyword)
+        (identifier)
+        (var_type_declaration
+          (assignable_var_type_declaration
+            (assignable_var_type)))
+        (statement_end))
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+protected var and non-protected vars
+==================
+
+page 50100 MyPage
+{
+    layout
+    {
+    }
+
+    protected var
+      a: Integer;
+      b: Integer;
+    var
+      a: Integer;
+
+    procedure HelloWorld()
+    {
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (metadata
+        (metadata_type)
+        (metadata_block
+          (metadata_begin)
+          (metadata_end)))
+      (global_var_definitions
+        (declaration_keyword)
+        (identifier)
+        (var_type_declaration
+          (assignable_var_type_declaration
+            (assignable_var_type)))
+        (statement_end)
+        (identifier)
+        (var_type_declaration
+          (assignable_var_type_declaration
+            (assignable_var_type)))
+        (statement_end))
+      (global_var_definitions
+        (declaration_keyword)
+        (identifier)
+        (var_type_declaration
+          (assignable_var_type_declaration
+            (assignable_var_type)))
+        (statement_end))
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (code_end)))
+      (metadata_end))))
+
+==================
+property values as formulas
+==================
+
+table 50100 "Main Vendors"
+{
+    TableRelation = Vendor."No." where ("Balance (LCY)" == filter (>= 10000));
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier
+      (identifier_in_quotes))
+    (metadata_block
+      (metadata_begin)
+      (property_definition
+        (identifier)
+        (property_value
+          (property_value
+            (identifier
+              (identifier)
+              (identifier
+                (identifier_in_quotes)))
+            (property_keyword)
+            (property_value_list
+              (property_value
+                (property_expression
+                  (property_binary_expression
+                    (property_value
+                      (property_expression
+                        (identifier
+                          (identifier_in_quotes))))
+                    (property_value
+                      (property_keyword)
+                      (property_value_list
+                        (property_value
+                          (property_expression
+                            (property_unary_expression
+                              (property_value
+                                (property_expression
+                                  (number_literal))))))))))))))
+        (statement_end))
+      (metadata_end))))
+
+==================
+property value mix of formula + list
+==================
+
+table 50100 "Main Vendors"
+{
+    CalcFormula = sum("G/L Entry".Amount where("G/L Account No." == field(filter(Totaling)),
+                                               "Posting Date" == field(upperlimit("Date Filter")),
+                                               "Dimension Set ID" == field("Dimension Set ID Filter")));
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier
+      (identifier_in_quotes))
+    (metadata_block
+      (metadata_begin)
+      (property_definition
+        (identifier)
+        (property_value
+          (property_value
+            (property_keyword)
+            (property_value_list
+              (property_value
+                (identifier
+                  (identifier
+                    (identifier_in_quotes))
+                  (identifier))
+                (property_keyword)
+                (property_value_list
+                  (property_value
+                    (property_expression
+                      (property_binary_expression
+                        (property_value
+                          (property_expression
+                            (identifier
+                              (identifier_in_quotes))))
+                        (property_value
+                          (property_keyword)
+                          (property_value_list
+                            (property_value
+                              (property_keyword)
+                              (property_value_list
+                                (property_value
+                                  (property_expression
+                                    (identifier))))))))))
+                  (property_value
+                    (property_expression
+                      (property_binary_expression
+                        (property_value
+                          (property_expression
+                            (identifier
+                              (identifier_in_quotes))))
+                        (property_value
+                          (property_keyword)
+                          (property_value_list
+                            (property_value
+                              (property_keyword)
+                              (property_value_list
+                                (property_value
+                                  (property_expression
+                                    (identifier
+                                      (identifier_in_quotes)))))))))))
+                  (property_value
+                    (property_expression
+                      (property_binary_expression
+                        (property_value
+                          (property_expression
+                            (identifier
+                              (identifier_in_quotes))))
+                        (property_value
+                          (property_keyword)
+                          (property_value_list
+                            (property_value
+                              (property_expression
+                                (identifier
+                                  (identifier_in_quotes))))))))))))))
+        (statement_end))
+      (metadata_end))))
+
+==================
+decimal places
+==================
+
+table 50100 "Main Vendors"
+{
+    DecimalPlaces = 0:5;
+    DecimalPlaces = 2:;
+    DecimalPlaces = :2;
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier
+      (identifier_in_quotes))
+    (metadata_block
+      (metadata_begin)
+      (property_definition
+        (identifier)
+        (property_value
+          (decimal_places
+            (integer_literal)
+            (integer_literal)))
+        (statement_end))
+      (property_definition
+        (identifier)
+        (property_value
+          (decimal_places
+            (integer_literal)))
+        (statement_end))
+      (property_definition
+        (identifier)
+        (property_value
+          (decimal_places
+            (integer_literal)))
+        (statement_end))
+      (metadata_end))))

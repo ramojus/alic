@@ -1,0 +1,41 @@
+page 50000 "Customer List"
+{
+    trigger OnOpenPage()
+    var
+        a: Integer;
+        "Quoted Name": Label 'test label';
+        IsRecordSaved: Boolean;
+    begin
+        if condition then begin
+        end else begin
+        end;
+        if condition then begin
+        end;
+
+        exit(a);
+        exit;
+
+        case expression of
+            expression:
+                begin
+                    DoOne();
+                    DoTwo();
+                end;
+            expression:
+                DoOnlyOne();
+            else
+        end;
+        IsRecordSaved := false;
+
+        a := (5 = (7 mod 4)) <> true;
+
+        for a := 1 to 5 do begin
+        end;
+        foreach a in b do begin
+        end;
+        while true do begin
+        end;
+        repeat
+        until Bye();
+    end;
+}

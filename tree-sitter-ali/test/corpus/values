@@ -1,0 +1,287 @@
+==================
+numbers
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+      a = 1 + 0.12;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (binary_expression
+                (expression
+                  (number_literal))
+                (expression
+                  (number_literal))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+dates
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+      a = 20180612D + 0DT + 0.3T;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (binary_expression
+                (expression
+                  (binary_expression
+                    (expression
+                      (date_literal))
+                    (expression
+                      (date_literal))))
+                (expression
+                  (date_literal))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+strings
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        "A Thing" = 'Stringy thing with '' – #escaped quote;';
+        var SomeVar: Label 'more '' #string;';
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier
+              (identifier_in_quotes))
+            (assignment_operator)
+            (expression
+              (string_literal))
+            (statement_end))
+          (var_declaration
+            (declaration_keyword)
+            (identifier)
+            (var_type_declaration
+              (non_assignable_var_type_declaration
+                (non_assignable_var_type
+                  (string_literal))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+field usage
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        MyRec.Field = 'the value';
+        a = MyRec.Field;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier
+              (identifier)
+              (identifier))
+            (assignment_operator)
+            (expression
+              (string_literal))
+            (statement_end))
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (identifier
+                (identifier)
+                (identifier)))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+object methods
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        MyRec.Method('the;'' value');
+        a = MyRec.Field();
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (method_call
+            (identifier
+              (identifier)
+              (identifier))
+            (argument_list
+              (expression
+                (string_literal))))
+          (statement_end)
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (method_call
+                (identifier
+                  (identifier)
+                  (identifier))
+                (argument_list)))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+enum values
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        a = MyRec::Value;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (identifier
+                (identifier)
+                (identifier)))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
+
+==================
+case-insensitive
+==================
+
+codeunit 50100 MyCodeunit
+{
+    procedure HelloWorld()
+    {
+        a = @b;
+    }
+}
+
+---
+
+(source_file
+  (object_definition
+    (number_literal)
+    (identifier)
+    (metadata_block
+      (metadata_begin)
+      (method_definition
+        (identifier)
+        (parameters)
+        (code_block
+          (code_begin)
+          (assignment
+            (identifier)
+            (assignment_operator)
+            (expression
+              (identifier
+                (expression
+                  (identifier))))
+            (statement_end))
+          (code_end)))
+      (metadata_end))))
